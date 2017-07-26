@@ -4,6 +4,8 @@
   "description": "Brainly Front-End Style Guide",
   "author": "Brainly",
   "private": true,
+  "main": "sketch/sketch.sketchplugin",
+  "manifest": "sketch/manifest.json",
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
@@ -38,10 +40,12 @@
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-sketchapp": "^0.11.6",
     "react-test-renderer": "^15.6.1",
     "run-sequence": "^1.1.1",
     "s3": "^4.4.0",
     "sass-lint": "^1.10.2",
+    "skpm": "^0.10.3",
     "through2": "^2.0.3",
     "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^2.6.1",
@@ -57,7 +61,8 @@
     "deploy": "gulp deploy",
     "postversion": "git push && git push --tags",
     "watch": "gulp build && gulp watch & npm start",
-    "test": "npm run scss-lint -s && npm run scss-unused-variables -s  && npm run js-lint -s  && jest"
+    "test": "npm run scss-lint -s && npm run scss-unused-variables -s  && npm run js-lint -s  && jest",
+    "sketch": "skpm build --watch --run"
   },
   "jest": {
     "moduleDirectories": [

@@ -26,6 +26,20 @@ test('component with string param', () => {
   expect(generateJSX(input)).toEqual(output);
 });
 
+
+test('component with enum param', () => {
+  const settings = [
+    {
+      name: 'size',
+      values: SIZE,
+    }
+  ];
+  const input = <Avatar size={SIZE.XSMALL} />;
+  const output = '<Avatar size={SIZE.XSMALL} />';
+
+  expect(generateJSX(input, settings)).toEqual(output);
+});
+
 const sizeLargeString = JSON.stringify(SIZE.LARGE);
 
 test('component with object param', () => {

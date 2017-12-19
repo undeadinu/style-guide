@@ -20,7 +20,22 @@ function propToString(prop, inJS = false) {
   return wrapInBraces ? '{' + result + '}' : result;
 }
 
-function generateJSX(component) {
+function highestLevelPropToString({propValue, propName, settings}) {
+  const propMeta = settings.find(setting => setting.name === propName);
+
+  if (propMeta && typeof propMeta.values === 'object') {
+
+    const propMetaKey = Object.keys(propMeta.values).find(key => propMeta.values[key] === propValue);
+
+    if (propMetaKey) {
+      return `{${propName.toUpperCase()}.${propMetaKey}}`;
+    }
+  }
+
+  return propToString(propValue);
+}
+
+function generateJSX(component, settings) {
   if (!React.isValidElement(component)) {
     return component;
   }
@@ -34,7 +49,20 @@ function generateJSX(component) {
         return key;
       }
 
-      return `${key}=${propToString(component.props[key])}`;
+      const propValue = component.props[key];
+      let formattedPropValue = ''
+
+      if (settings) {
+        formattedPropValue = highestLevelPropToString({
+          propName: key,
+          propValue,
+          settings
+        });
+      } else {
+        formattedPropValue = propToString(propValue);
+      }
+      
+      return `${key}=${formattedPropValue}`;
     })
     .join(' ');
 

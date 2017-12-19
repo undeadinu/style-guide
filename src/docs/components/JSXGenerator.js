@@ -50,7 +50,7 @@ function generateJSX(component, settings) {
       }
 
       const propValue = component.props[key];
-      let formattedPropValue = ''
+      let formattedPropValue = '';
 
       if (settings) {
         formattedPropValue = highestLevelPropToString({
@@ -61,7 +61,7 @@ function generateJSX(component, settings) {
       } else {
         formattedPropValue = propToString(propValue);
       }
-      
+
       return `${key}=${formattedPropValue}`;
     })
     .join(' ');

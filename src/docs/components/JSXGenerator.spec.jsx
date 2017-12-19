@@ -30,8 +30,8 @@ test('component with enum param', () => {
   const settings = [
     {
       name: 'size',
-      values: SIZE,
-    };
+      values: SIZE
+    }
   ];
   const input = <Avatar size={SIZE.XSMALL} />;
   const output = '<Avatar size={SIZE.XSMALL} />';

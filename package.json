@@ -45,7 +45,7 @@
     "scss-unused-variables": "./scripts/find_scss_unused_variables.sh src/",
     "build": "gulp build",
     "start": "http-server ./dist -p 8000",
-    "prepare": "NODE_ENV=production babel src/components --out-dir=lib --source-maps",
+    "prepare": "echo shuolf prepare",
     "prepush": "yarn test",
     "deploy": "gulp deploy",
     "postversion": "git push && git push --tags",

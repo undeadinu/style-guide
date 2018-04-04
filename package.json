@@ -5,6 +5,7 @@
   "author": "Brainly",
   "private": true,
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
@@ -53,6 +54,7 @@
     "scss-unused-variables": "./scripts/find_scss_unused_variables.sh src/",
     "build": "gulp build",
     "start": "http-server ./dist -p 8000",
+    "prepublish": "NODE_ENV=production babel src/components --out-dir=lib --source-maps",
     "prepush": "yarn test",
     "deploy": "gulp deploy",
     "postversion": "git push && git push --tags",

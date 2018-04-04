@@ -4,6 +4,13 @@
   "env": {
     "test": {
       "plugins": ["transform-es2015-modules-commonjs"]
+    },
+    "production": {
+      "ignore": [
+        "**/__mocks__/",
+        "**/*.spec.js",
+        "**/pages/"
+      ]
     }
   }
 }

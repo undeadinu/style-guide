@@ -10,6 +10,12 @@ test('render', () => {
   expect(container.hasClass('sg-spinner-container')).toEqual(true);
 });
 
+test('full', () => {
+  const container = shallow(<SpinnerContainer full />);
+
+  expect(container.hasClass('sg-spinner-container--full')).toEqual(true);
+});
+
 test('loading', () => {
   const container = shallow(<SpinnerContainer loading />);
 

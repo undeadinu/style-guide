@@ -16,6 +16,10 @@ const SpinnerContainers = () => {
     {
       name: 'light',
       values: Boolean
+    },
+    {
+      name: 'full',
+      values: Boolean
     }
   ];
 
@@ -23,7 +27,7 @@ const SpinnerContainers = () => {
     <div>
       <DocsActiveBlock settings={settings} backgroundColor="light">
         <SpinnerContainer>
-          <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>
+          <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT} wide>
             Ask your question
           </ButtonPrimary>
         </SpinnerContainer>
